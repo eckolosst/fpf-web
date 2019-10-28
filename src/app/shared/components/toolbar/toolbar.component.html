@@ -1,0 +1,15 @@
+<mat-toolbar fxLayoutAlign="space-between center">
+  <div class="logo-div" routerLink="/home">
+    <img src="assets/images/logo.png" alt="">
+  </div>
+  <div>
+    <button mat-stroked-button routerLinkActive="activo" routerLink="/home"><b>INICIO</b></button>
+    <button mat-stroked-button routerLinkActive="activo" routerLink="/searches"><b>BÚSQUEDAS</b></button>
+    <button mat-stroked-button routerLinkActive="activo" routerLink="/adoptions"><b>ADOPCIONES</b></button>
+  </div>
+  <div>
+    <button mat-stroked-button routerLinkActive="activo" (click)="login_SignUp('login')"><b>INGRESAR</b></button>
+    <b>|</b>
+    <button mat-stroked-button routerLinkActive="activo" (click)="login_SignUp('signup')"><b>REGISTRARSE</b></button>
+  </div>
+</mat-toolbar>

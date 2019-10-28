@@ -1,0 +1,113 @@
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
+
+$md-fpfpalette: (
+  50: #e4e9ef,
+  100: #bcc8d7,
+  200: #8fa3bc,
+  300: #627ea1,
+  400: #41628d,
+  500: #1f4679,
+  600: #1b3f71,
+  700: #173766,
+  800: #122f5c,
+  900: #0a2049,
+  A100: #80a5ff,
+  A200: #4d81ff,
+  A400: #1a5eff,
+  A700: #004cff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff
+  )
+);
+
+// custom background and foreground palettes
+$main-theme-background: (
+  status-bar: rgba($white-6-opacity, 500),
+  app-bar: map_get($md-fpfpalette, A100),
+  background: map_get($md-fpfpalette, A200),
+  hover: rgba(white, 0.04),
+  card: rgba(white, 1),
+  dialog: rgba(white, 1),
+  disabled-button: map_get($md-fpfpalette, 100),
+  raised-button: map_get($md-fpfpalette, 900),
+  focused-button: map_get($md-fpfpalette, 400),
+  selected-button: map_get($mat-grey, 900),
+  selected-disabled-button: map_get($mat-grey, 800),
+  disabled-button-toggle: black,
+  unselected-chip: #ffab40,
+  disabled-list-option: black
+);
+$main-theme-foreground: (
+  base: rgba(black, 500),
+  divider: rgba(black, 500),
+  dividers: rgba(black, 500),
+  disabled: rgba(white, 0.3),
+  disabled-button: rgba(black, 0.3),
+  disabled-text: rgba(white, 0.3),
+  hint-text: rgba(white, 0.3),
+  secondary-text: rgba(black, 1),
+  icon: #ffab40,
+  icons: #ffab40,
+  text: #313131,
+  slider-min: white,
+  slider-off: rgba(white, 0.3),
+  slider-off-active: rgba(white, 0.3)
+);
+
+// instead of creating a theme with mat-light-theme like a sane person, we will create our
+// own theme-creating function that lets us apply our own foreground and background palettes.
+@function create-main-theme($primary, $accent, $warn) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+    is-dark: false,
+    foreground: $main-theme-foreground,
+    background: $main-theme-background
+  );
+}
+
+// Define a custom typography config that overrides the font-family as well as the
+// `headlines` and `body-1` levels.
+$custom-typography: mat-typography-config(
+  $font-family: 'Fira Sans, sans-serif',
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500),
+  $button: mat-typography-level(16px, 24px, 500)
+);
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+// @include mat-core();
+@include mat-core($custom-typography);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$main-primary: mat-palette($md-fpfpalette);
+$main-accent: mat-palette($mat-orange, A200, A100, A400);
+$main-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+//$main-theme: mat-light-theme($main-primary, $main-accent, $main-warn);
+$main-theme: create-main-theme($main-primary, $main-accent, $main-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($main-theme);

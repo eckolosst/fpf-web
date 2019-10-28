@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/styles/scss/themes/_main-theme.scss",
               "src/styles.scss"
             ],
             "scripts": []
