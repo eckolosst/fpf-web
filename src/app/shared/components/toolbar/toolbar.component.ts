@@ -15,7 +15,7 @@ export class ToolbarComponent implements OnInit {
 
   login_SignUp(type: string) {
     if (type === 'login') {
-      const dialogRef = this.dialog.open(LoginComponent, { width: '400px' });
+      const dialogRef = this.dialog.open(LoginComponent, { width: '400px', panelClass: 'custom-dialog-container' });
     } else {
       const dialogRef = this.dialog.open(SignupComponent, { width: '400px' });
     }

@@ -1,1 +1,49 @@
-<p>login works!</p>
+<mat-progress-bar mode="determinate" class="session-progress"></mat-progress-bar>
+
+<div class="text-center mb-1 bg-color-primary logo">
+  <img src="assets/images/logo.png" alt="" class="mb-05" />
+  <p class="text-muted-white m-0">Iniciar sesión en su cuenta</p>
+</div>
+<form [formGroup]="signinForm" (ngSubmit)="signin()">
+  <div class="">
+    <mat-form-field class="full-width">
+      <input matInput name="username" [formControl]="signinForm.controls['username']" placeholder="Username" value="" />
+    </mat-form-field>
+    <small
+      *ngIf="signinForm.controls['username'].hasError('required') && signinForm.controls['username'].touched"
+      class="form-error-msg"
+    >
+      Usuario requerido
+    </small>
+  </div>
+
+  <div class="">
+    <mat-form-field class="full-width">
+      <input
+        type="password"
+        name="password"
+        matInput
+        [formControl]="signinForm.controls['password']"
+        placeholder="Password"
+        value=""
+      />
+    </mat-form-field>
+    <small
+      *ngIf="signinForm.controls['password'].hasError('required') && signinForm.controls['password'].touched"
+      class="form-error-msg"
+    >
+      Password requerido
+    </small>
+  </div>
+
+  <!-- <div class="pb-1">
+    <mat-checkbox name="rememberMe" [formControl]="signinForm.controls['rememberMe']" class="pb-1"
+      >Remember this computer</mat-checkbox
+    >
+  </div> -->
+
+  <button mat-raised-button color="primary" class="full-width mb-1" [disabled]="signinForm.invalid">Sign in</button>
+  <div class="text-center">
+    <a [routerLink]="'/sessions/forgot-password'" class="mat-primary text-center full-width">¿Olvidó su contraseña?</a>
+  </div>
+</form>
