@@ -1,0 +1,28 @@
+.mainDiv {
+  margin-top: 2rem;
+  height: 300px;
+  background-image: url('src/assets/images/footer.png');
+  background-size: cover;
+}
+
+img {
+  max-width: 48px;
+  padding: 0 10px;
+}
+
+h1 {
+  color: #1f4679;
+  font-size: 2.5rem;
+}
+p {
+  color: #1f4679;
+  font-size: 1.5rem;
+}
+
+.by {
+  position: fixed;
+  right: 10px;
+  bottom: 5px;
+  font-size: 15px;
+  margin: 0;
+}
