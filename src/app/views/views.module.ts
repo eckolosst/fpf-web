@@ -20,7 +20,7 @@ import { AgmCoreModule } from '@agm/core';
     FormsModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyB5tJUUev07_4R3XvpL9x5s201tVGvCCrU'
+      apiKey: ''
     })
   ]
 })
