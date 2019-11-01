@@ -1,1 +1,44 @@
-<p>searches works!</p>
+<div class="bg-color-primary barra mt-1"></div>
+<div fxLayoutAlign="start stretch">
+  <div fxFlex="30" class="bg-color-secondary" fxLayout="column">
+    <div class="p-1 mt-1 mb-1">
+      <form action="" fxLayout="column" fxFlexOffset="15" fxFlex="70">
+        <mat-form-field>
+          <input matInput placeholder="Ubicación" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select placeholder="Distancia desde tu ubicación" name="item">
+            <mat-option *ngFor="let item of distances" [value]="item.value">
+              {{ item }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select placeholder="Mascota" name="item">
+            <mat-option *ngFor="let item of petType" [value]="item.value">
+              {{ item }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div dir="rtl">
+          <button mat-raised-button color="primary" type="submit">Buscar</button>
+        </div>
+      </form>
+    </div>
+    <p class="p-1 mt-1 bg-color-primary text-center">Resultados encontrados</p>
+    <div class="miss mt-1" fxLayout="column" fxLayoutAlign="start center">
+      <p>Significado de los íconos</p>
+      <img src="assets/images/perdido-icon.png" />
+      <p>Perdido</p>
+      <img src="assets/images/avistamiento-icon.png" />
+      <p>Avistamiento</p>
+    </div>
+  </div>
+
+  <div fxFlex>
+    <agm-map fxFlex [latitude]="lat" [longitude]="lng">
+      <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="aIcon"></agm-marker>
+    </agm-map>
+  </div>
+</div>
+<div class="bg-color-primary barrita"></div>
