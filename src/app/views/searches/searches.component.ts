@@ -16,12 +16,29 @@ export class SearchesComponent implements OnInit {
 
   constructor() {
     /* Debería recuperar las coordenadas del dispositivo */
-    this.lat = -39.0687096;
-    this.lng = -67.6409601;
+    this.lat = 0;
+    this.lng = 0;
 
     this.petType = ['Perro', 'Gato', 'Tortuga', 'Conejo', 'Cabra', 'Péz', 'Canguro', 'Jirafa'];
-    this.distances = ['1 km', '2 km', '3 km', '4 km', '5 km', '6 km', '7 km', '8 km', '9 km'];
+    this.distances = ['1 km', '3 km', '5 km', '10 km', '15 km', '20 km', '25 km', '30 km'];
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.updateLocation();
+  }
+
+  updateLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          console.log(position);
+          this.lat = position.coords.latitude;
+          this.lng = position.coords.longitude;
+        },
+        error => console.error(error)
+      );
+    } else {
+      alert('Geolocation is not supported by this browser.');
+    }
+  }
 }

@@ -18,3 +18,12 @@
     width: 100%;
   }
 }
+
+@media (max-width: 599px) {
+  .mat-toolbar-single-row {
+    height: 72px;
+  }
+  .logo-div {
+    max-width: 72px;
+  }
+}

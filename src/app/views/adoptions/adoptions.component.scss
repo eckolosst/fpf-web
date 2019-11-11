@@ -56,3 +56,16 @@ img {
     }
   }
 }
+
+@media (max-width: 599px) {
+  h1 {
+    max-width: 100%;
+    font-size: 2rem;
+  }
+  #list {
+    .elem {
+      width: 90%;
+      margin: 1rem auto 0 auto;
+    }
+  }
+}

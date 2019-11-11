@@ -11,7 +11,10 @@ import {
   MatDialogModule,
   MatProgressBarModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatRippleModule,
+  MatIconModule,
+  MatMenuModule
 } from '@angular/material';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -29,6 +32,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatProgressBarModule,
     MatFormFieldModule,
     MatInputModule,
+    MatRippleModule,
+    MatIconModule,
+    MatMenuModule,
     FormsModule,
     ReactiveFormsModule
   ],

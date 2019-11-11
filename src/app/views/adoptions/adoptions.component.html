@@ -3,10 +3,11 @@
     <h1>AVISOS DE ADOPCIONES</h1>
   </div>
 
-  <div id="list" fxFlex="90" fxLayout="row" fxLayoutAlign="space-between center">
-    <div matRipple class="div-icon">
+  <div id="list" fxFlex.gt-sm="90" fxLayout="row wrap" fxLayoutAlign="space-between center">
+    <div matRipple fxHide.lt-sm class="div-icon">
       <mat-icon color="primary">arrow_back_ios</mat-icon>
     </div>
+
     <div id="div1" class="elem" fxLayout="column">
       <img src="assets/images/temp/1.png" alt="" />
       <h1>Gatito en Adopción</h1>
@@ -34,7 +35,8 @@
         consequat</span
       >
     </div>
-    <div matRipple class="div-icon">
+
+    <div matRipple fxHide.lt-sm class="div-icon">
       <mat-icon color="primary">arrow_forward_ios</mat-icon>
     </div>
   </div>

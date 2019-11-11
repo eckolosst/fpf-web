@@ -12,7 +12,26 @@
 p {
   color: white;
 }
-
 agm-map {
   height: 100%;
+}
+
+.map-button {
+  position: absolute;
+  z-index: 1;
+  right: 5px;
+  margin-top: 5px;
+  background-color: #ffffff52 !important;
+}
+
+@media (max-width: 599px) {
+  agm-map {
+    height: 87vh;
+  }
+  .miss {
+    margin: auto;
+    div {
+      width: 100%;
+    }
+  }
 }

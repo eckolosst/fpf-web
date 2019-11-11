@@ -1,5 +1,5 @@
 <div class="bg-color-primary barra mt-1"></div>
-<div fxLayoutAlign="start stretch">
+<div fxLayoutAlign="start stretch" fxLayout.lt-sm="column">
   <div fxFlex="30" class="bg-color-secondary" fxLayout="column">
     <div class="p-1 mt-1 mb-1">
       <form action="" fxLayout="column" fxFlexOffset="15" fxFlex="70">
@@ -26,16 +26,25 @@
       </form>
     </div>
     <p class="p-1 mt-1 bg-color-primary text-center">Resultados encontrados</p>
-    <div class="miss mt-1" fxLayout="column" fxLayoutAlign="start center">
+    <div class="miss mt-1" fxLayout="column" fxLayoutAlign="start center" fxLayoutAlign.lt-sm="center center">
       <p>Significado de los íconos</p>
-      <img src="assets/images/perdido-icon.png" />
-      <p>Perdido</p>
-      <img src="assets/images/avistamiento-icon.png" />
-      <p>Avistamiento</p>
+      <div fxLayout.lt-sm="row">
+        <div>
+          <img src="assets/images/perdido-icon.png" />
+          <p>Perdido</p>
+        </div>
+        <div>
+          <img src="assets/images/avistamiento-icon.png" />
+          <p>Avistamiento</p>
+        </div>
+      </div>
     </div>
   </div>
 
   <div fxFlex>
+    <button mat-mini-fab class="map-button" (click)="updateLocation()">
+      <mat-icon>gps_fixed</mat-icon>
+    </button>
     <agm-map fxFlex [latitude]="lat" [longitude]="lng">
       <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="aIcon"></agm-marker>
     </agm-map>

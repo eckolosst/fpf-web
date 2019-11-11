@@ -7,3 +7,25 @@ h1 {
 p {
   max-width: 50%;
 }
+@media (max-width: 599px) {
+  h1 {
+    margin-top: 3rem;
+    max-width: 100%;
+    font-size: 2rem;
+  }
+  p {
+    max-width: 80%;
+  }
+  img {
+    object-fit: contain;
+  }
+  #img1 {
+    max-height: 325px;
+  }
+  #img2 {
+    max-height: 368px;
+  }
+  #img3 {
+    max-height: 456px;
+  }
+}
