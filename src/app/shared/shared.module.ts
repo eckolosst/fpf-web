@@ -19,9 +19,17 @@ import {
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PublicationsService } from './services/publications.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [LayoutComponent, FooterComponent, ToolbarComponent, LoginComponent, SignupComponent],
+  declarations: [
+    LayoutComponent,
+    FooterComponent,
+    ToolbarComponent,
+    LoginComponent,
+    SignupComponent
+  ],
   imports: [
     CommonModule,
     RouterModule,
@@ -36,9 +44,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     MatMenuModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [LayoutComponent],
-  entryComponents: [LoginComponent, SignupComponent]
+  entryComponents: [LoginComponent, SignupComponent],
+  providers: [PublicationsService]
 })
 export class SharedModule {}

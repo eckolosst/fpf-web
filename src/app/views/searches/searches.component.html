@@ -21,12 +21,19 @@
           </mat-select>
         </mat-form-field>
         <div dir="rtl">
-          <button mat-raised-button color="primary" type="submit">Buscar</button>
+          <button mat-raised-button color="primary" type="submit">
+            Buscar
+          </button>
         </div>
       </form>
     </div>
     <p class="p-1 mt-1 bg-color-primary text-center">Resultados encontrados</p>
-    <div class="miss mt-1" fxLayout="column" fxLayoutAlign="start center" fxLayoutAlign.lt-sm="center center">
+    <div
+      class="miss mt-1"
+      fxLayout="column"
+      fxLayoutAlign="start center"
+      fxLayoutAlign.lt-sm="center center"
+    >
       <p>Significado de los íconos</p>
       <div fxLayout.lt-sm="row">
         <div>
@@ -46,7 +53,12 @@
       <mat-icon>gps_fixed</mat-icon>
     </button>
     <agm-map fxFlex [latitude]="lat" [longitude]="lng">
-      <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="aIcon"></agm-marker>
+      <agm-marker
+        *ngFor="let item of publications"
+        [latitude]="item.location.lat"
+        [longitude]="item.location.lng"
+        [iconUrl]="aIcon"
+      ></agm-marker>
     </agm-map>
   </div>
 </div>

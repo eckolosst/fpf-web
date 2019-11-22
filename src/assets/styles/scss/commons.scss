@@ -107,5 +107,9 @@
   color: rgba(0, 0, 0, 0.54) !important;
 }
 .text-muted-white {
-    color: rgba(255, 255, 255, .54) !important;
-  }
+  color: rgba(255, 255, 255, 0.54) !important;
+}
+
+h1,p, span {
+  font-family: 'Raleway', sans-serif;
+}
