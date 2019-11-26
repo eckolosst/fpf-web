@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PublicationsService } from 'src/app/shared/services/publications.service';
+import { MatDialog } from '@angular/material';
+import { NewSearchComponent } from './new-search/new-search.component';
 
 @Component({
   selector: 'app-searches',
@@ -16,31 +18,13 @@ export class SearchesComponent implements OnInit {
   public petType;
   public distances;
 
-  constructor(private publicationService: PublicationsService) {
+  constructor(private publicationService: PublicationsService, private dialog: MatDialog) {
     this.lat = 0;
     this.lng = 0;
     this.publications = [];
 
-    this.petType = [
-      'Perro',
-      'Gato',
-      'Tortuga',
-      'Conejo',
-      'Cabra',
-      'Péz',
-      'Canguro',
-      'Jirafa'
-    ];
-    this.distances = [
-      '1 km',
-      '3 km',
-      '5 km',
-      '10 km',
-      '15 km',
-      '20 km',
-      '25 km',
-      '30 km'
-    ];
+    this.petType = ['Perro', 'Gato', 'Tortuga', 'Conejo', 'Cabra', 'Péz', 'Canguro', 'Jirafa'];
+    this.distances = ['1 km', '3 km', '5 km', '10 km', '15 km', '20 km', '25 km', '30 km'];
   }
 
   ngOnInit() {
@@ -74,5 +58,12 @@ export class SearchesComponent implements OnInit {
       },
       error => console.log(error)
     );
+  }
+
+  openModalNew() {
+    const dialogRef = this.dialog.open(NewSearchComponent, {
+      width: '500px',
+      panelClass: 'custom-dialog-container'
+    });
   }
 }

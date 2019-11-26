@@ -24,6 +24,11 @@ agm-map {
   background-color: #ffffff52 !important;
 }
 
+.mat-stroked-button {
+  border-color: white !important;
+  color: white;
+}
+
 @media (max-width: 599px) {
   agm-map {
     height: 87vh;

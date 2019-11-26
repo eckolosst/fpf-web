@@ -10,14 +10,18 @@ import {
   MatInputModule,
   MatSelectModule,
   MatIconModule,
-  MatRipple,
-  MatRippleModule
+  MatRippleModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatDividerModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
+import { NewSearchComponent } from './searches/new-search/new-search.component';
+import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
-  declarations: [HomeComponent, SearchesComponent, AdoptionsComponent],
+  declarations: [HomeComponent, SearchesComponent, AdoptionsComponent, NewSearchComponent],
   imports: [
     CommonModule,
     FlexLayoutModule,
@@ -27,11 +31,16 @@ import { AgmCoreModule } from '@agm/core';
     MatSelectModule,
     MatIconModule,
     MatRippleModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatDividerModule,
+    FileUploadModule,
     FormsModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB5tJUUev07_4R3XvpL9x5s201tVGvCCrU'
     })
-  ]
+  ],
+  entryComponents: [NewSearchComponent]
 })
 export class ViewsModule {}

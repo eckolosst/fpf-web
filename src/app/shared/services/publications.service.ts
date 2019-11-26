@@ -31,4 +31,8 @@ export class PublicationsService {
   getHelpReq() {
     return this.http.get<any>(`${this.url}/publication?type=helpReq`);
   }
+
+  addMissingOrFound(publication) {
+    return this.http.post<any>(`${this.url}/publication`, publication);
+  }
 }

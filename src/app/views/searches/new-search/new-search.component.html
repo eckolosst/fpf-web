@@ -1,0 +1,54 @@
+<form [formGroup]="searchForm" (ngSubmit)="send()" fxLayoutAlign="space-between center">
+  <mat-form-field>
+    <mat-select placeholder="Tipo de Evento" formControlName="type" name="type">
+      <mat-option value="missing">Mascota perdida</mat-option>
+      <mat-option value="found">Mascota vista</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Fecha del evento" />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</form>
+<div fxLayoutAlign="space-between center" class="bg-color-primary p-05">
+  <h3>Mascotas:</h3>
+  <button mat-mini-fab (click)="addPet()"><mat-icon>add</mat-icon></button>
+</div>
+<div *ngFor="let pet of petForms; let i = index">
+  <mat-divider></mat-divider>
+  <form [formGroup]="pet" fxLayout="row wrap" fxLayoutAlign="space-between center">
+    <mat-form-field>
+      <mat-select placeholder="Tipo" formControlName="type" name="type">
+        <mat-option *ngFor="let item of petType" [value]="item">
+          {{ item }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Nombre" formControlName="name" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Color" formControlName="color" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Raza" formControlName="raza" />
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput type="text" placeholder="Descripción" formControlName="description"></textarea>
+    </mat-form-field>
+
+    <div class="mt-1" fxFlex="20">
+      <p>Foto</p>
+      <span fxFlex></span>
+      <button mat-mini-fab color="primary">
+        <label for="imgFile">
+          <mat-icon>search</mat-icon>
+        </label>
+      </button>
+    </div>
+    <input id="imgFile" type="file" ng2FileSelect [uploader]="imgUploaders[i]" />
+  </form>
+</div>
+<button mat-raised-button color="accent" (click)="send()">Guardar</button>
