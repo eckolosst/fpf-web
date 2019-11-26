@@ -38,7 +38,7 @@ import { FileUploadModule } from 'ng2-file-upload';
     FormsModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyB5tJUUev07_4R3XvpL9x5s201tVGvCCrU'
+      apiKey: ''
     })
   ],
   entryComponents: [NewSearchComponent]
