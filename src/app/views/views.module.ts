@@ -19,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { NewSearchComponent } from './new-search/new-search.component';
 import { FileUploadModule } from 'ng2-file-upload';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [HomeComponent, SearchesComponent, AdoptionsComponent, NewSearchComponent],
@@ -37,8 +38,10 @@ import { FileUploadModule } from 'ng2-file-upload';
     FileUploadModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule,
     AgmCoreModule.forRoot({
-      apiKey: ''
+      apiKey: 'AIzaSyB5tJUUev07_4R3XvpL9x5s201tVGvCCrU'
+      // apiKey: ''
     })
   ],
 })

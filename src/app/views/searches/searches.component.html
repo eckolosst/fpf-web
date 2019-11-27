@@ -1,7 +1,6 @@
 <div class="bg-color-primary barra mt-1" fxLayoutAlign="start center">
   <span fxFlex="2"></span>
   <button mat-stroked-button routerLink="/newsearch">Agregar</button>
-  
 </div>
 <div fxLayoutAlign="start stretch" fxLayout.lt-sm="column">
   <div fxFlex="30" class="bg-color-secondary" fxLayout="column">
@@ -32,12 +31,7 @@
       </form>
     </div>
     <p class="p-1 mt-1 bg-color-primary text-center">Resultados encontrados</p>
-    <div
-      class="miss mt-1"
-      fxLayout="column"
-      fxLayoutAlign="start center"
-      fxLayoutAlign.lt-sm="center center"
-    >
+    <div class="miss mt-1" fxLayout="column" fxLayoutAlign="start center" fxLayoutAlign.lt-sm="center center">
       <p>Significado de los íconos</p>
       <div fxLayout.lt-sm="row">
         <div>
@@ -61,7 +55,7 @@
         *ngFor="let item of publications"
         [latitude]="item.location.lat"
         [longitude]="item.location.lng"
-        [iconUrl]="aIcon"
+        [iconUrl]="item.type === 'found' ? aIcon : pIcon"
       ></agm-marker>
     </agm-map>
   </div>

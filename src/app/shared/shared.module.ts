@@ -14,13 +14,16 @@ import {
   MatInputModule,
   MatRippleModule,
   MatIconModule,
-  MatMenuModule
+  MatMenuModule,
+  MatProgressSpinnerModule
 } from '@angular/material';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PublicationsService } from './services/publications.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AppLoaderService } from './services/app-loader/app-loader.service';
+import { AppLoaderComponent } from './services/app-loader/app-loader.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     ToolbarComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    AppLoaderComponent
   ],
   imports: [
     CommonModule,
@@ -43,12 +47,13 @@ import { HttpClientModule } from '@angular/common/http';
     MatRippleModule,
     MatIconModule,
     MatMenuModule,
+    MatProgressSpinnerModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule
   ],
-  exports: [LayoutComponent],
-  entryComponents: [LoginComponent, SignupComponent],
-  providers: [PublicationsService]
+  exports: [LayoutComponent, AppLoaderComponent],
+  entryComponents: [LoginComponent, SignupComponent, AppLoaderComponent],
+  providers: [PublicationsService, AppLoaderService]
 })
 export class SharedModule {}

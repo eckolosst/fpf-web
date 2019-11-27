@@ -53,7 +53,7 @@ export class SearchesComponent implements OnInit {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         position => {
-          // console.log(position);
+          console.log(position);
           this.lat = position.coords.latitude;
           this.lng = position.coords.longitude;
         },

@@ -1,54 +1,76 @@
-<form [formGroup]="searchForm" (ngSubmit)="send()" fxLayoutAlign="space-between center">
-  <mat-form-field>
-    <mat-select placeholder="Tipo de Evento" formControlName="type" name="type">
-      <mat-option value="missing">Mascota perdida</mat-option>
-      <mat-option value="found">Mascota vista</mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field>
-    <input matInput [matDatepicker]="picker" placeholder="Fecha del evento" />
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-</form>
-<div fxLayoutAlign="space-between center" class="bg-color-primary p-05">
-  <h3>Mascotas:</h3>
-  <button mat-mini-fab (click)="addPet()"><mat-icon>add</mat-icon></button>
+<div class="bg-color-primary barra mt-1" fxLayoutAlign="start center">
+  <span fxFlex="2"></span>
+  <button mat-stroked-button routerLink="/searches">Volver</button>
 </div>
-<div *ngFor="let pet of petForms; let i = index">
-  <mat-divider></mat-divider>
-  <form [formGroup]="pet" fxLayout="row wrap" fxLayoutAlign="space-between center">
+
+<div fxLayout="row wrap">
+  <form
+    [formGroup]="searchForm"
+    fxLayoutAlign="space-between center"
+    fxFlexOffset.gt-sm="20"
+    fxFlexOffset="5"
+    fxFlex.gt-sm="60"
+    fxFlex="90"
+  >
     <mat-form-field>
-      <mat-select placeholder="Tipo" formControlName="type" name="type">
-        <mat-option *ngFor="let item of petType" [value]="item">
-          {{ item }}
-        </mat-option>
+      <mat-select placeholder="Tipo de Evento" formControlName="type" name="type">
+        <mat-option value="missing">Mascota perdida</mat-option>
+        <mat-option value="found">Mascota vista</mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Nombre" formControlName="name" />
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Color" formControlName="color" />
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Raza" formControlName="raza" />
-    </mat-form-field>
-    <mat-form-field>
-      <textarea matInput type="text" placeholder="Descripción" formControlName="description"></textarea>
-    </mat-form-field>
 
-    <div class="mt-1" fxFlex="20">
-      <p>Foto</p>
-      <span fxFlex></span>
-      <button mat-mini-fab color="primary">
-        <label for="imgFile">
-          <mat-icon>search</mat-icon>
-        </label>
-      </button>
-    </div>
-    <input id="imgFile" type="file" ng2FileSelect [uploader]="imgUploaders[i]" />
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Fecha del evento" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
   </form>
+  <div fxLayoutAlign="space-evenly center" class="bg-color-primary p-05" fxFlex="100">
+    <h3>Mascotas</h3>
+    <button mat-mini-fab (click)="addPet()"><mat-icon>add</mat-icon></button>
+  </div>
+  <div
+    *ngFor="let pet of petForms; let i = index"
+    fxFlexOffset.gt-sm="20"
+    fxFlexOffset="5"
+    fxFlex.gt-sm="60"
+    fxFlex="90"
+  >
+    <mat-divider></mat-divider>
+    <form [formGroup]="pet" fxLayout="row wrap" fxLayoutAlign="space-between center">
+      <mat-form-field>
+        <mat-select placeholder="Tipo" formControlName="type" name="type">
+          <mat-option *ngFor="let item of petType" [value]="item">
+            {{ item }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Nombre" formControlName="name" />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Color" formControlName="color" />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Raza" formControlName="raza" />
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput type="text" placeholder="Descripción" formControlName="description"></textarea>
+      </mat-form-field>
+
+      <div class="mt-1" fxFlex="45">
+        <p>Agregar Foto</p>
+        <span fxFlex></span>
+        <button mat-mini-fab color="primary">
+          <label for="imgFile">
+            <mat-icon>search</mat-icon>
+          </label>
+        </button>
+      </div>
+      <input id="imgFile" type="file" ng2FileSelect [uploader]="imgUploaders[i]" />
+    </form>
+  </div>
+  <div fxFlex="100" fxFlexOffset.gt-sm="20" fxFlexOffset="5">
+    <button mat-raised-button color="accent" (click)="send()">Guardar</button>
+  </div>
 </div>
-<button mat-raised-button color="accent" (click)="send()">Guardar</button>

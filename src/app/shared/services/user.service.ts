@@ -26,6 +26,11 @@ export class UserService {
     return localStorage.getItem('identity') ? true : false;
   }
 
+  getUserId() {
+    const identity = localStorage.getItem('identity');
+    return identity ? JSON.parse(identity).id : null;
+  }
+
   getToken() {
     const tokenIn = localStorage.getItem('token');
     if (tokenIn) {

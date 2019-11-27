@@ -17,7 +17,15 @@ export class PublicationsService {
   }
 
   getMissingOrFound() {
-    return this.http.get<any>(`${this.url}/publication?type=missingOrFound`);
+    return this.http.get<any>(`${this.url}/missingOrFound`);
+  }
+
+  getMissing() {
+    return this.http.get<any>(`${this.url}/publication?type=missing`);
+  }
+
+  getFound() {
+    return this.http.get<any>(`${this.url}/publication?type=found`);
   }
 
   getAdoption() {
@@ -32,7 +40,7 @@ export class PublicationsService {
     return this.http.get<any>(`${this.url}/publication?type=helpReq`);
   }
 
-  addMissingOrFound(publication) {
+  addPublication(publication) {
     return this.http.post<any>(`${this.url}/publication`, publication);
   }
 }
