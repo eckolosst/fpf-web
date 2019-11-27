@@ -3,19 +3,42 @@
     <img src="assets/images/logo.png" alt="" />
   </div>
   <div fxHide.lt-md>
-    <button mat-stroked-button routerLinkActive="activo" routerLink="/home"><b>INICIO</b></button>
-    <button mat-stroked-button routerLinkActive="activo" routerLink="/searches"><b>BÚSQUEDAS</b></button>
-    <button mat-stroked-button routerLinkActive="activo" routerLink="/adoptions"><b>ADOPCIONES</b></button>
+    <button mat-stroked-button routerLinkActive="activo" routerLink="/home">
+      <b>INICIO</b>
+    </button>
+    <button mat-stroked-button routerLinkActive="activo" routerLink="/searches">
+      <b>BÚSQUEDAS</b>
+    </button>
+    <button
+      mat-stroked-button
+      routerLinkActive="activo"
+      routerLink="/adoptions"
+    >
+      <b>ADOPCIONES</b>
+    </button>
   </div>
-  <div fxHide.lt-md>
-    <button mat-stroked-button class="mat-primary" routerLinkActive="activo" (click)="login_SignUp('login')">
+  <div fxHide.lt-md *ngIf="!isLogued; else userIcon">
+    <button
+      mat-stroked-button
+      class="mat-primary"
+      routerLinkActive="activo"
+      (click)="login_SignUp('login')"
+    >
       <b>INGRESAR</b>
     </button>
     <b>|</b>
-    <button mat-stroked-button class="mat-primary" routerLinkActive="activo" (click)="login_SignUp('signup')">
+    <button
+      mat-stroked-button
+      class="mat-primary"
+      routerLinkActive="activo"
+      (click)="login_SignUp('signup')"
+    >
       <b>REGISTRARSE</b>
     </button>
   </div>
+  <ng-template #userIcon>
+    <mat-icon>account_circle</mat-icon>
+  </ng-template>
 
   <div fxLayoutAlign="space-between center" fxHide.gt-sm>
     <button id="mini-menu" mat-button [matMenuTriggerFor]="menu">
@@ -23,11 +46,31 @@
     </button>
 
     <mat-menu #menu="matMenu">
-      <button mat-menu-item routerLinkActive="activo" routerLink="/home"><b>INICIO</b></button>
-      <button mat-menu-item routerLinkActive="activo" routerLink="/searches"><b>BÚSQUEDAS</b></button>
-      <button mat-menu-item routerLinkActive="activo" routerLink="/adoptions"><b>ADOPCIONES</b></button>
-      <button mat-menu-item routerLinkActive="activo" (click)="login_SignUp('login')"><b>INGRESAR</b></button>
-      <button mat-menu-item routerLinkActive="activo" (click)="login_SignUp('signup')"><b>REGISTRARSE</b></button>
+      <button mat-menu-item routerLinkActive="activo" routerLink="/home">
+        <b>INICIO</b>
+      </button>
+      <button mat-menu-item routerLinkActive="activo" routerLink="/searches">
+        <b>BÚSQUEDAS</b>
+      </button>
+      <button mat-menu-item routerLinkActive="activo" routerLink="/adoptions">
+        <b>ADOPCIONES</b>
+      </button>
+      <div *ngIf="!isLogued">
+        <button
+          mat-menu-item
+          routerLinkActive="activo"
+          (click)="login_SignUp('login')"
+        >
+          <b>INGRESAR</b>
+        </button>
+        <button
+          mat-menu-item
+          routerLinkActive="activo"
+          (click)="login_SignUp('signup')"
+        >
+          <b>REGISTRARSE</b>
+        </button>
+      </div>
     </mat-menu>
   </div>
 </mat-toolbar>

@@ -22,6 +22,10 @@ export class UserService {
     return this.http.post<any>(this.url + '/login', data);
   }
 
+  isLogued(): boolean {
+    return localStorage.getItem('identity') ? true : false;
+  }
+
   getToken() {
     const tokenIn = localStorage.getItem('token');
     if (tokenIn) {

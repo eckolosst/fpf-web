@@ -17,7 +17,7 @@ import {
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
-import { NewSearchComponent } from './searches/new-search/new-search.component';
+import { NewSearchComponent } from './new-search/new-search.component';
 import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
@@ -41,6 +41,5 @@ import { FileUploadModule } from 'ng2-file-upload';
       apiKey: ''
     })
   ],
-  entryComponents: [NewSearchComponent]
 })
 export class ViewsModule {}

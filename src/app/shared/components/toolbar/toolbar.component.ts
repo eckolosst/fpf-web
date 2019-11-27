@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { LoginComponent } from '../login/login.component';
 import { SignupComponent } from '../signup/signup.component';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -10,9 +11,12 @@ import { SignupComponent } from '../signup/signup.component';
   // encapsulation: ViewEncapsulation.None
 })
 export class ToolbarComponent implements OnInit {
-  constructor(private dialog: MatDialog) {}
+  public isLogued: boolean;
+  constructor(private dialog: MatDialog, private userService: UserService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.checkLogued();
+  }
 
   login_SignUp(type: string) {
     if (type === 'login') {
@@ -23,5 +27,10 @@ export class ToolbarComponent implements OnInit {
     } else {
       const dialogRef = this.dialog.open(SignupComponent, { width: '400px' });
     }
+    this.isLogued = true;
+  }
+
+  checkLogued() {
+    this.isLogued = this.userService.isLogued();
   }
 }

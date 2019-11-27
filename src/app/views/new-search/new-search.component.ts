@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PublicationsService } from 'src/app/shared/services/publications.service';
 import { PetService } from 'src/app/shared/services/pet.service';
@@ -19,7 +18,6 @@ export class NewSearchComponent implements OnInit {
   public urlApi: string;
 
   constructor(
-    private dialogRef: MatDialogRef<NewSearchComponent>,
     private formBuilder: FormBuilder,
     private publicationService: PublicationsService,
     private petService: PetService
@@ -27,6 +25,7 @@ export class NewSearchComponent implements OnInit {
     this.urlApi = environment.apiUrl;
     this.petType = ['Perro', 'Gato', 'Tortuga', 'Conejo', 'Cabra', 'Péz', 'Canguro', 'Jirafa'];
     this.petForms = [];
+    this.imgUploaders = [];
   }
 
   ngOnInit() {
@@ -82,9 +81,5 @@ export class NewSearchComponent implements OnInit {
       },
       error => console.log(error)
     );
-  }
-
-  onNoClick() {
-    this.dialogRef.close();
   }
 }
