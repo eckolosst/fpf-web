@@ -20,9 +20,10 @@ import { AgmCoreModule } from '@agm/core';
 import { NewSearchComponent } from './new-search/new-search.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import { RouterModule } from '@angular/router';
+import { PetDialogComponent } from './searches/pet-dialog/pet-dialog.component';
 
 @NgModule({
-  declarations: [HomeComponent, SearchesComponent, AdoptionsComponent, NewSearchComponent],
+  declarations: [HomeComponent, SearchesComponent, AdoptionsComponent, NewSearchComponent, PetDialogComponent],
   imports: [
     CommonModule,
     FlexLayoutModule,
@@ -44,5 +45,6 @@ import { RouterModule } from '@angular/router';
       // apiKey: ''
     })
   ],
+  entryComponents: [PetDialogComponent]
 })
 export class ViewsModule {}

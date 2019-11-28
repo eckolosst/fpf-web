@@ -15,4 +15,8 @@ export class PetService {
   addPet(pet) {
     return this.http.post<any>(`${this.url}/pet`, pet);
   }
+
+  getPetsByPublication(idPublicacion) {
+    return this.http.get<any>(`${this.url}/pet?publicationId=${idPublicacion}`);
+  }
 }

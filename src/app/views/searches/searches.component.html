@@ -56,6 +56,7 @@
         [latitude]="item.location.lat"
         [longitude]="item.location.lng"
         [iconUrl]="item.type === 'found' ? aIcon : pIcon"
+        (markerClick)="openPetDialog(item.id)"
       ></agm-marker>
     </agm-map>
   </div>

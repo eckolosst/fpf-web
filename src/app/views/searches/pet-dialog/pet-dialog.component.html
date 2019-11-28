@@ -1,0 +1,10 @@
+<div fxLayout="column">
+  <div class="mat-card-header-text p-1" fxLayout="column">
+    <span class="mat-card-title">{{ petData.name }}</span>
+    <span class="mat-card-subtitle">{{ petData.type }}</span>
+  </div>
+  <img src="{{apiUrl}}/images/pets/{{petData.image}}" fxFlex="100" alt="" />
+  <div class="mat-card-content p-05">
+    <p>{{ petData.description }}</p>
+  </div>
+</div>
