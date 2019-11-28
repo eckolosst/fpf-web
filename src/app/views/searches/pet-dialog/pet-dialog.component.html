@@ -3,9 +3,18 @@
     <span class="mat-card-title">{{ petData.name }}</span>
     <span class="mat-card-subtitle">{{ petData.type }}</span>
   </div>
-  <img *ngIf="petData.image; else noImage" src="{{ apiUrl }}/images/pets/{{ petData.image }}" fxFlex="100" alt="" />
+  <img
+    *ngIf="petData.image; else noImage"
+    src="{{ apiUrl }}/images/pets/{{ petData.image }}"
+    fxFlex="100"
+    alt=""
+  />
   <ng-template #noImage>
-    <img src="http://denrakaev.com/wp-content/uploads/2015/03/no-image-800x511.png" alt="" />
+    <img
+      style="object-fit: contain; max-height: 250px;"
+      src="http://denrakaev.com/wp-content/uploads/2015/03/no-image-800x511.png"
+      alt=""
+    />
   </ng-template>
   <div class="mat-card-content p-05">
     <p>{{ petData.description }}</p>
