@@ -13,7 +13,8 @@ import {
   MatRippleModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  MatDividerModule
+  MatDividerModule,
+  MatSnackBarModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
@@ -39,6 +40,7 @@ import { PetDialogComponent } from './searches/pet-dialog/pet-dialog.component';
     FileUploadModule,
     FormsModule,
     ReactiveFormsModule,
+    MatSnackBarModule,
     RouterModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB5tJUUev07_4R3XvpL9x5s201tVGvCCrU'

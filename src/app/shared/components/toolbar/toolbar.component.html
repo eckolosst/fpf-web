@@ -9,35 +9,26 @@
     <button mat-stroked-button routerLinkActive="activo" routerLink="/searches">
       <b>BÚSQUEDAS</b>
     </button>
-    <button
-      mat-stroked-button
-      routerLinkActive="activo"
-      routerLink="/adoptions"
-    >
+    <button mat-stroked-button routerLinkActive="activo" routerLink="/adoptions">
       <b>ADOPCIONES</b>
     </button>
   </div>
   <div fxHide.lt-md *ngIf="!isLogued; else userIcon">
-    <button
-      mat-stroked-button
-      class="mat-primary"
-      routerLinkActive="activo"
-      (click)="login_SignUp('login')"
-    >
+    <button mat-stroked-button class="mat-primary" routerLinkActive="activo" (click)="login_SignUp('login')">
       <b>INGRESAR</b>
     </button>
     <b>|</b>
-    <button
-      mat-stroked-button
-      class="mat-primary"
-      routerLinkActive="activo"
-      (click)="login_SignUp('signup')"
-    >
+    <button mat-stroked-button class="mat-primary" routerLinkActive="activo" (click)="login_SignUp('signup')">
       <b>REGISTRARSE</b>
     </button>
   </div>
   <ng-template #userIcon>
-    <mat-icon>account_circle</mat-icon>
+    <button mat-mini-fab color="primary" [matMenuTriggerFor]="menuSesion"><mat-icon>account_circle</mat-icon></button>
+    <mat-menu #menuSesion="matMenu">
+      <button mat-menu-item (click)="logout()"> 
+        <b>Cerrar Sesión</b>
+      </button>
+    </mat-menu>
   </ng-template>
 
   <div fxLayoutAlign="space-between center" fxHide.gt-sm>
@@ -56,18 +47,10 @@
         <b>ADOPCIONES</b>
       </button>
       <div *ngIf="!isLogued">
-        <button
-          mat-menu-item
-          routerLinkActive="activo"
-          (click)="login_SignUp('login')"
-        >
+        <button mat-menu-item routerLinkActive="activo" (click)="login_SignUp('login')">
           <b>INGRESAR</b>
         </button>
-        <button
-          mat-menu-item
-          routerLinkActive="activo"
-          (click)="login_SignUp('signup')"
-        >
+        <button mat-menu-item routerLinkActive="activo" (click)="login_SignUp('signup')">
           <b>REGISTRARSE</b>
         </button>
       </div>

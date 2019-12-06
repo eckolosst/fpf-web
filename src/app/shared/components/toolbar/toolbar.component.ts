@@ -24,13 +24,20 @@ export class ToolbarComponent implements OnInit {
         width: '400px',
         panelClass: 'custom-dialog-container'
       });
+      dialogRef.afterClosed().subscribe(result => {
+        this.checkLogued();
+      });
     } else {
       const dialogRef = this.dialog.open(SignupComponent, { width: '400px' });
     }
-    this.isLogued = true;
   }
 
   checkLogued() {
     this.isLogued = this.userService.isLogued();
+  }
+
+  logout() {
+    this.userService.logout();
+    this.isLogued = false;
   }
 }

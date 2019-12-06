@@ -17,10 +17,7 @@ export class LoginComponent implements OnInit {
   signinForm: FormGroup;
   public identity: any;
 
-  constructor(
-    private dialogRef: MatDialogRef<LoginComponent>,
-    private userService: UserService
-  ) {}
+  constructor(private dialogRef: MatDialogRef<LoginComponent>, private userService: UserService) {}
 
   ngOnInit() {
     this.signinForm = new FormGroup({
@@ -36,9 +33,7 @@ export class LoginComponent implements OnInit {
       result => {
         this.identity = result.user;
         if (!this.identity || !this.identity.id) {
-          console.log(
-            'El usuario no se ha logueado coorectamente: id incorrecto'
-          );
+          console.log('El usuario no se ha logueado coorectamente: id incorrecto');
         } else {
           localStorage.setItem('identity', JSON.stringify(this.identity));
 
@@ -50,7 +45,7 @@ export class LoginComponent implements OnInit {
               } else {
                 localStorage.setItem('token', this.token);
                 this.submitButton.disabled = true;
-                this.onNoClick();
+                this.dialogRef.close(true);
               }
             },
             error => {

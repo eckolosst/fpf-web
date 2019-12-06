@@ -15,3 +15,13 @@ input[type='file'] {
 .mat-form-field {
   width: 45%;
 }
+
+agm-map {
+  height: 500px;
+}
+
+@media (max-width: 599px) {
+  agm-map {
+    height: 80vh;
+  }
+}

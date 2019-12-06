@@ -6,6 +6,7 @@
 <div fxLayout="row wrap">
   <form
     [formGroup]="searchForm"
+    fxLayout="row wrap"
     fxLayoutAlign="space-between center"
     fxFlexOffset.gt-sm="20"
     fxFlexOffset="5"
@@ -22,8 +23,22 @@
     <mat-form-field>
       <input matInput [matDatepicker]="picker" placeholder="Fecha del evento" />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
+      <mat-datepicker #picker (closed)="showMessage()"></mat-datepicker>
     </mat-form-field>
+
+    <agm-map
+      fxFlex="100"
+      [latitude]="locationMap.lat"
+      [longitude]="locationMap.lng"
+      (mapClick)="placeMarker($event)"
+      *ngIf="showMap"
+    >
+      <agm-marker
+        *ngIf="locationMarker.lat"
+        [latitude]="locationMarker.lat"
+        [longitude]="locationMarker.lng"
+      ></agm-marker>
+    </agm-map>
   </form>
   <div fxLayoutAlign="space-evenly center" class="bg-color-primary p-05" fxFlex="100">
     <h3>Mascotas</h3>
