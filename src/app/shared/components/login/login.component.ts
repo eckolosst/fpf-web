@@ -1,5 +1,10 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { MatProgressBar, MatButton, MatDialogRef, MatSnackBar } from '@angular/material';
+import {
+  MatProgressBar,
+  MatButton,
+  MatDialogRef,
+  MatSnackBar
+} from '@angular/material';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 
@@ -64,8 +69,12 @@ export class LoginComponent implements OnInit {
         }
       },
       error => {
-        console.log(error);
-        this.notificar('Error inesperado al intentar iniciar sesión.');
+        if (error.status === 403) {
+          this.notificar('Usuario o contraseña incorrecto!');
+        } else {
+          // console.log(error);
+          this.notificar('Error inesperado al intentar iniciar sesión.');
+        }
         this.dialogRef.close(false);
       }
     );
